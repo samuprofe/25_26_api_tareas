@@ -62,4 +62,13 @@ public class TareaService {
                 })
                 .orElseThrow(() -> new RuntimeException("Tarea no encontrada con id: " + id));
     }
+
+    public Tarea marcarComoNoFinalizada(Long id) {
+        return tareaRepository.findById(id)
+                .map(tarea -> {
+                    tarea.setFinalizada(false);
+                    return tareaRepository.save(tarea);
+                })
+                .orElseThrow(() -> new RuntimeException("Tarea no encontrada con id: " + id));
+    }
 }

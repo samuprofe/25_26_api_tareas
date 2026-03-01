@@ -77,4 +77,14 @@ public class TareaController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PatchMapping("/{id}/sinfinalizar")
+    public ResponseEntity<Tarea> marcarComoNoFinalizada(@PathVariable Long id) {
+        try {
+            Tarea tarea = tareaService.marcarComoNoFinalizada(id);
+            return ResponseEntity.ok(tarea);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

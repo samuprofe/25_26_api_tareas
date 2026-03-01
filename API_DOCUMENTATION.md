@@ -112,6 +112,10 @@ Respuesta: `200 OK`
 
 Respuesta: `200 OK` o `404 Not Found`
 
+### 9. Marcar tarea como No finalizada
+**PATCH** `/api/tareas/{id}/sinfinalizar`
+
+Respuesta: `200 OK` o `404 Not Found`
 ## Configuración
 
 La aplicación se ejecuta en el puerto **8080** y se conecta a MySQL en el puerto **3307**.
@@ -147,6 +151,9 @@ curl -X PUT http://localhost:8080/api/tareas/1 \
 
 # Marcar como finalizada
 curl -X PATCH http://localhost:8080/api/tareas/1/finalizar
+
+# Marcar como no finalizada
+curl -X PATCH http://localhost:8080/api/tareas/1/sinfinalizar
 
 # Eliminar tarea
 curl -X DELETE http://localhost:8080/api/tareas/1
