@@ -87,6 +87,10 @@ Respuesta: `200 OK` o `404 Not Found`
 
 Respuesta: `204 No Content` o `404 Not Found`
 
+```json
+// Sin contenido (solo headers)
+```
+
 ### 6. Obtener tareas por estado
 **GET** `/api/tareas/estado/{finalizada}`
 
@@ -96,6 +100,17 @@ Parámetros:
 Ejemplo: `/api/tareas/estado/false`
 
 Respuesta: `200 OK`
+```json
+[
+  {
+    "id": 1,
+    "texto": "Completar proyecto",
+    "comentario": "Revisar código antes de entregar",
+    "fechaCreacion": "2026-01-14T10:30:00",
+    "finalizada": false
+  }
+]
+```
 
 ### 7. Buscar tareas por texto
 **GET** `/api/tareas/buscar?texto={texto}`
@@ -106,6 +121,17 @@ Parámetros:
 Ejemplo: `/api/tareas/buscar?texto=proyecto`
 
 Respuesta: `200 OK`
+```json
+[
+  {
+    "id": 1,
+    "texto": "Completar proyecto",
+    "comentario": "Revisar código antes de entregar",
+    "fechaCreacion": "2026-01-14T10:30:00",
+    "finalizada": false
+  }
+]
+```
 
 ### 8. Marcar tarea como finalizada
 **PATCH** `/api/tareas/{id}/finalizar`
@@ -116,6 +142,7 @@ Respuesta: `200 OK` o `404 Not Found`
 **PATCH** `/api/tareas/{id}/sinfinalizar`
 
 Respuesta: `200 OK` o `404 Not Found`
+
 ## Configuración
 
 La aplicación se ejecuta en el puerto **8080** y se conecta a MySQL en el puerto **3307**.
